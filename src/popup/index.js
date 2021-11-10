@@ -5,13 +5,18 @@ import Icon from '../icon';
 const [createComponent, bem] = createNamespace('popup');
 
 export default createComponent({
+  // 弹出层公共逻辑
   mixins: [PopupMixin()],
 
   props: {
+    // 是否圆角
     round: Boolean,
+    // 动画时间
     duration: [Number, String],
     closeable: Boolean,
+    // 自定义动画
     transition: String,
+    // iphonex 兼容样式
     safeAreaInsetBottom: Boolean,
     closeIcon: {
       type: String,
@@ -21,6 +26,7 @@ export default createComponent({
       type: String,
       default: 'top-right',
     },
+    // 弹出位置,定位属性
     position: {
       type: String,
       default: 'center',

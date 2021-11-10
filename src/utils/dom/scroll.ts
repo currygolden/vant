@@ -7,9 +7,17 @@ function isWindow(val: unknown): val is Window {
 // get nearest scroll element
 // https://github.com/youzan/vant/issues/3823
 const overflowScrollReg = /scroll|auto/i;
+
+/**
+ * 滚动逻辑统一处理
+ * @description 获取滚动容器元素
+ * @return {node}
+ * 样式上有 scroll | overflow 的可能会产生滚动
+ * 这里的功能前置需要了解 html 元素的各种距离
+ */
 export function getScroller(el: HTMLElement, root: ScrollElement = window) {
   let node = el;
-
+  // 会一直递归到root
   while (
     node &&
     node.tagName !== 'HTML' &&
@@ -33,7 +41,9 @@ export function getScrollTop(el: ScrollElement): number {
   // iOS scroll bounce cause minus scrollTop
   return Math.max(top, 0);
 }
-
+/**
+ * @description 设置Y 方向的滚动
+ */
 export function setScrollTop(el: ScrollElement, value: number) {
   if ('scrollTop' in el) {
     el.scrollTop = value;
@@ -42,6 +52,9 @@ export function setScrollTop(el: ScrollElement, value: number) {
   }
 }
 
+/**
+ * @description 获取根元素的滚动距离
+ */
 export function getRootScrollTop(): number {
   return (
     window.pageYOffset ||

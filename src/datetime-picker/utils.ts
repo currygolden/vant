@@ -27,6 +27,7 @@ export function getTrueValue(value: string | undefined): number {
   return parseInt(value, 10);
 }
 
+// 获取月的最后一天
 export function getMonthEndDay(year: number, month: number): number {
   return 32 - new Date(year, month - 1, 32).getDate();
 }

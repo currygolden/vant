@@ -18,7 +18,9 @@ if (!isServer) {
     // eslint-disable-next-line no-empty
   } catch (e) {}
 }
-
+/**
+ * dom 事件机制处理 api 封装
+ */
 export function on(
   target: EventTarget,
   event: string,

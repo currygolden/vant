@@ -74,6 +74,7 @@ export function PopupMixin(options = {}) {
     },
 
     computed: {
+      // 是否需要渲染
       shouldRender() {
         return this.inited || !this.lazyRender;
       },
@@ -89,7 +90,7 @@ export function PopupMixin(options = {}) {
           this.$emit(type);
         }
       },
-
+      // watch 还tm有这种写法
       overlay: 'renderOverlay',
     },
 

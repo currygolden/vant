@@ -9,7 +9,7 @@ export default createComponent({
     subtitle: String,
     showTitle: Boolean,
     showSubtitle: Boolean,
-    firstDayOfWeek: Number,
+    firstDayOfWeek: Number, // 每周起始日
   },
 
   methods: {

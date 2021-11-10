@@ -12,6 +12,7 @@ export function toArray<T>(item: T | T[]): T[] {
   return [item];
 }
 
+// 将 file 文件转成不同的格式
 export function readFile(file: File, resultType: ResultType) {
   return new Promise<FileReader['result']>((resolve) => {
     if (resultType === 'file') {

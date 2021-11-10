@@ -7,6 +7,7 @@ import { preventDefault } from '../utils/dom/event';
 import { CreateElement, RenderContext } from 'vue/types';
 import { DefaultSlots } from '../utils/types';
 
+// 单独的蒙层实现
 export type OverlayProps = {
   show?: boolean;
   zIndex?: number | string;

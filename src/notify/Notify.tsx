@@ -13,6 +13,7 @@ import { CreateElement, RenderContext } from 'vue/types';
 import { DefaultSlots } from '../utils/types';
 import { PopupMixinProps } from '../mixins/popup/type';
 
+// 定义notify的联合属性
 export type NotifyProps = PopupMixinProps & {
   type: 'primary' | 'success' | 'danger' | 'warning';
   color: string;

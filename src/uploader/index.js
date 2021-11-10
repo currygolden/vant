@@ -18,10 +18,12 @@ export default createComponent({
 
   mixins: [FieldMixin],
 
+  // 自定义说明 v-model的值来自于 fileList
   model: {
     prop: 'fileList',
   },
 
+  // 暴露的api
   props: {
     disabled: Boolean,
     lazyLoad: Boolean,
@@ -63,6 +65,7 @@ export default createComponent({
       type: Boolean,
       default: true,
     },
+    // 全屏预览
     previewFullImage: {
       type: Boolean,
       default: true,
@@ -93,6 +96,7 @@ export default createComponent({
   },
 
   methods: {
+    // 获取当前上传文件index
     getDetail(index = this.fileList.length) {
       return {
         name: this.name,
@@ -106,7 +110,7 @@ export default createComponent({
       if (this.disabled || !files.length) {
         return;
       }
-
+      // 单次处理一个/多个文件
       files = files.length === 1 ? files[0] : [].slice.call(files);
 
       if (this.beforeRead) {
@@ -173,6 +177,7 @@ export default createComponent({
       }
     },
 
+    // files是处理过的数据
     onAfterRead(files, oversize) {
       this.resetInput();
 
@@ -247,7 +252,7 @@ export default createComponent({
         this.$refs.input.value = '';
       }
     },
-
+    // 触发预览
     onPreviewImage(item) {
       if (!this.previewFullImage) {
         return;
@@ -383,12 +388,12 @@ export default createComponent({
         return this.fileList.map(this.genPreviewItem);
       }
     },
-
+    // 展示上传区域
     genUpload() {
       if (this.fileList.length >= this.maxCount || !this.showUpload) {
         return;
       }
-
+      // 说明slot获取的就是vnode
       const slot = this.slots();
 
       const Input = (
@@ -421,6 +426,7 @@ export default createComponent({
         };
       }
 
+      // 无插槽展示内容
       return (
         <div class={bem('upload')} style={style}>
           <Icon name={this.uploadIcon} class={bem('upload-icon')} />

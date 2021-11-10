@@ -24,6 +24,7 @@ const iRaf = root.requestAnimationFrame || fallback;
 /* istanbul ignore next */
 const iCancel = root.cancelAnimationFrame || root.clearTimeout;
 
+// 兼容requestAnimationFrame
 export function raf(fn: FrameRequestCallback): number {
   return iRaf.call(root, fn);
 }
